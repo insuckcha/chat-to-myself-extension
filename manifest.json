@@ -2,14 +2,10 @@
     "manifest_version": 3,
     "name": "Chat to Myself",
     "version": "1.0",
-    "description": "Send messages to yourself like a chat app.",
+    "description": "A minimal popup chat app for Chrome.",
     "action": {
-        "default_popup": "popup.html",
-        "default_icon": {
-            "16": "icon.png",
-            "48": "icon.png",
-            "128": "icon.png"
-        }
+        "default_popup": "src/popup.html"
     },
-    "permissions": ["storage"]
+    "permissions": ["storage"],
+    "host_permissions": []
 }

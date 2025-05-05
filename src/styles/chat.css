@@ -1,0 +1,26 @@
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+    padding-bottom: 10px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.chat-messages::-webkit-scrollbar {
+    display: none;
+}
+
+.chat-bubble {
+    background-color: #e0f7fa;
+    color: #000;
+    padding: 10px 14px;
+    border-radius: 16px;
+    max-width: 80%;
+    align-self: flex-end;
+    font-size: 14px;
+    word-break: break-word;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}

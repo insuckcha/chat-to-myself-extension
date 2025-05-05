@@ -1,8 +1,12 @@
 import React from "react";
-import { createRoot } from "react-dom/client";
+import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./styles.css";
 
-const container = document.getElementById("root")!;
-const root = createRoot(container);
-root.render(<App />);
+// Centralized style imports
+import "./styles/base.css";
+import "./styles/chat.css";
+import "./styles/input.css";
+import "./styles/menu.css";
+import "./styles/modal.css";
+
+ReactDOM.createRoot(document.getElementById("root")!).render(<App />);
