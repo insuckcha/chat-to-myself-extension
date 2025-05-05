@@ -7,7 +7,7 @@ export default defineConfig({
     plugins: [
         react(),
 
-        // Optional: Fix <script src="./popup.tsx"> to popup.js in dist/popup.html
+        // Fix <script src="./popup.tsx"> to popup.js in dist/popup.html
         {
             name: "fix-popup-html",
             apply: "build",
@@ -23,7 +23,7 @@ export default defineConfig({
             }
         },
 
-        // Always copy manifest.json to dist/
+        // Copy manifest.json to dist/
         {
             name: "copy-manifest",
             apply: "build",
@@ -32,6 +32,23 @@ export default defineConfig({
                     await fs.copyFile("manifest.json", "dist/manifest.json");
                 } catch (e) {
                     console.error("Failed to copy manifest.json:", e.message);
+                }
+            }
+        },
+
+        // ✅ Copy icons/ folder to dist/icons
+        {
+            name: "copy-icons",
+            apply: "build",
+            closeBundle: async () => {
+                try {
+                    await fs.mkdir("dist/icons", { recursive: true });
+                    const files = ["icon16.png", "icon48.png", "icon128.png"];
+                    for (const file of files) {
+                        await fs.copyFile(`icons/${file}`, `dist/icons/${file}`);
+                    }
+                } catch (e) {
+                    console.error("Failed to copy icons:", e.message);
                 }
             }
         }
